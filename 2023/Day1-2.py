@@ -1,13 +1,13 @@
 from typing import List
 from word2number import w2n
 
-numbersInText = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+numbersInText: List[str] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 lines = []
 with open('inputs/input1-1.txt') as f:
     lines = f.readlines()
 
-sumCalibration = 0
+sumCalibration: int = 0
 
 for line in lines:
     firstNumber: int = None
