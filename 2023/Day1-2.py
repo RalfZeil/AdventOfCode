@@ -1,6 +1,7 @@
+from typing import List
 from word2number import w2n
 
-numbersInText = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero")
+numbersInText = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 
 def main():
@@ -12,18 +13,18 @@ def main():
     sumCalibration = 0
 
     for line in lines:
-        firstNumber = None
-        lastNumber = None
+        firstNumber: int = None
+        lastNumber: int = None
+        textNumbers: List[str] = []
 
         # Extract written numbers from line
-        textNumbers = []
         for num in numbersInText:
             if num in line:
                 textNumbers.append(num)
 
         # Extract numbers from line
         for char in line:
-            if char.isnumeric():
+            if char.isdigit():
                 if firstNumber is None:
                     firstNumber = char
 
@@ -34,9 +35,10 @@ def main():
             if line.find(textNum) < line.find(firstNumber):
                 firstNumber = textNum
 
-            elif line.rfind(textNum) > line.rfind(lastNumber):
+            if line.rfind(textNum) > line.rfind(lastNumber):
                 lastNumber = textNum
 
+        print(firstNumber, lastNumber)
         sumCalibration += int(str(w2n.word_to_num(firstNumber)) + str(w2n.word_to_num(lastNumber)))
 
     print(sumCalibration)
