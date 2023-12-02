@@ -1,7 +1,7 @@
 def main():
     # Read out the file and put them into the lines array
     lines = ""
-    with open('inputs/input1-1.txt') as f:
+    with open('inputs/input1.txt') as f:
         lines = f.readlines()
 
     sumCalibration = 0;

@@ -4,7 +4,7 @@ from word2number import w2n
 numbersInText: List[str] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 lines = []
-with open('inputs/input1-1.txt') as f:
+with open('inputs/input1.txt') as f:
     lines = f.readlines()
 
 sumCalibration: int = 0
